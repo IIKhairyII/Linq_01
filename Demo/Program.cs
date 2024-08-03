@@ -157,35 +157,35 @@ namespace Demo
             #endregion
             #endregion
             #region Elements Operator
-            //In the following things if sequence is empty exception will be thrown
-            var first = ProductsList.First();
-            var firstWithCondition = ProductsList.First(p => p.UnitPrice > 20);
-            Console.WriteLine(first);
-            Console.WriteLine(firstWithCondition);
-            Console.WriteLine("<========================================>");
-            first = ProductsList.FirstOrDefault();
-            firstWithCondition = ProductsList.FirstOrDefault(p => p.UnitPrice > 20);
-            Console.WriteLine(first?.ToString() ?? "Not found");
-            Console.WriteLine(firstWithCondition?.ToString() ?? "Not found");
+            ////In the following things if sequence is empty exception will be thrown
+            //var first = ProductsList.First();
+            //var firstWithCondition = ProductsList.First(p => p.UnitPrice > 20);
+            //Console.WriteLine(first);
+            //Console.WriteLine(firstWithCondition);
+            //Console.WriteLine("<========================================>");
+            //first = ProductsList.FirstOrDefault();
+            //firstWithCondition = ProductsList.FirstOrDefault(p => p.UnitPrice > 20);
+            //Console.WriteLine(first?.ToString() ?? "Not found");
+            //Console.WriteLine(firstWithCondition?.ToString() ?? "Not found");
 
-            //In the following things if sequence is empty exception will be thrown
-            var last = ProductsList.Last();
-            var lastWithCondition = ProductsList.Last(p => p.UnitPrice > 20);
-            Console.WriteLine(last);
-            Console.WriteLine(lastWithCondition);
-            Console.WriteLine("<========================================>");
-            last = ProductsList.LastOrDefault();
-            lastWithCondition = ProductsList.LastOrDefault(p => p.UnitPrice > 20);
-            Console.WriteLine(last?.ToString() ?? "Not found");
-            Console.WriteLine(lastWithCondition?.ToString() ?? "Not found");
+            ////In the following things if sequence is empty exception will be thrown
+            //var last = ProductsList.Last();
+            //var lastWithCondition = ProductsList.Last(p => p.UnitPrice > 20);
+            //Console.WriteLine(last);
+            //Console.WriteLine(lastWithCondition);
+            //Console.WriteLine("<========================================>");
+            //last = ProductsList.LastOrDefault();
+            //lastWithCondition = ProductsList.LastOrDefault(p => p.UnitPrice > 20);
+            //Console.WriteLine(last?.ToString() ?? "Not found");
+            //Console.WriteLine(lastWithCondition?.ToString() ?? "Not found");
 
 
-            //In the following things if sequence is empty exception will be thrown
-            var element = ProductsList.ElementAt(2);
-            Console.WriteLine(element);
-            Console.WriteLine("<========================================>");
-            element = ProductsList.ElementAtOrDefault(999);
-            Console.WriteLine(element?.ToString() ?? "Not found");
+            ////In the following things if sequence is empty exception will be thrown
+            //var element = ProductsList.ElementAt(2);
+            //Console.WriteLine(element);
+            //Console.WriteLine("<========================================>");
+            //element = ProductsList.ElementAtOrDefault(999);
+            //Console.WriteLine(element?.ToString() ?? "Not found");
             #endregion
         }
     }
