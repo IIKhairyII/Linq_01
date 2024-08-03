@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using static Data_Lists.ListGenerator;
+﻿using static Data_Lists.ListGenerator;
 namespace Linq_01
 {
     internal class Program
@@ -62,7 +61,64 @@ namespace Linq_01
             Console.WriteLine("<=============================================================Aggregate Operators=======================================================>");
             Console.WriteLine();
             #region Aggregate Operators
+            #region Problem 1
+            int[] arrAgg1 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            int oddCountAgg1 = arrAgg1.Where(n => n % 2 != 0).Count();
+            Console.WriteLine(oddCountAgg1);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 2
+            var resultAgg2 = CustomersList.Select(c=> new
+            {
+                customer = c.CustomerID,
+                customerName = c.CustomerName,
+                ordersCount = c.Orders.Count()
+            });
+            printCollection(resultAgg2);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 3
+            var resultAgg3 = ProductsList.GroupBy(p => p.Category).Select(c=> new
+            {
+                Category = c.Key,
+                ProductCount = c.Count()
+            });
+            printCollection(resultAgg3);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 4
 
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 5
+
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 6
+
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 7
+
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 8
+
+            #endregion
             #endregion
             Console.WriteLine();
             Console.WriteLine("<=================================================================Ordering Operators===================================================>");
@@ -100,7 +156,7 @@ namespace Linq_01
             Console.WriteLine();
             #region Problem 5
             string[] ArrO5 = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            var resultO5 = ArrO5.OrderBy(w => w.Length).ThenBy(w=>w, StringComparer.OrdinalIgnoreCase);
+            var resultO5 = ArrO5.OrderBy(w => w.Length).ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
             printCollection(resultO5);
             #endregion
             Console.WriteLine();
@@ -122,13 +178,81 @@ namespace Linq_01
             Console.WriteLine("<====================================================================================================================>");
             Console.WriteLine();
             #region Problem 8
-            string[] ArrO8 = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+            string[] ArrO8 = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             var resultO8 = ArrO8.Where(word => word.Length > 1 && word[1] == 'i').Reverse();
             printCollection(resultO8);
             #endregion
             #endregion
+            Console.WriteLine();
+            Console.WriteLine("<=================================================================Transformation Operators===================================================>");
+            Console.WriteLine();
             #region Transformation Operators
-
+            #region Problem 1
+            var resultT1 = ProductsList.Select(p => p.ProductName);
+            printCollection(resultT1);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 2
+            string[] wordsT2 = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            var resultT2 = wordsT2.Select(w => new
+            {
+                Upper = w.ToUpper(),
+                Lower = w.ToLower(),
+            });
+            printCollection(resultT2);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 3
+            var resultT3 = ProductsList.Select(p => new
+            {
+                p.ProductName,
+                Price = p.UnitPrice,
+                p.Category
+            });
+            printCollection(resultT3);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 4
+            int[] ArrT4 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var resultT4 = ArrT4.Select((n, i) =>
+            {
+                return $"{n}: {n == i}";
+            });
+            Console.WriteLine("Numbers in place");
+            printCollection(resultT4);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 5
+            int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            int[] numbersB = { 1, 3, 5, 7, 8 };
+            var resultT5 = numbersA.SelectMany(na => numbersB.Where(nb => nb > na).Select(nb =>
+            {
+                return $"{na} is less than {nb}";
+            }));
+            printCollection(resultT5);
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 6
+            var resultT6 = CustomersList.SelectMany(c => c.Orders.Where(o => o.Total < 500));
+            printCollection(resultT6);  
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine("<====================================================================================================================>");
+            Console.WriteLine();
+            #region Problem 7
+            var resultT7 = CustomersList.SelectMany(c => c.Orders.Where(o => o.OrderDate.Year >= 1998));
+            printCollection(resultT7);
+            #endregion
             #endregion
         }
     }
